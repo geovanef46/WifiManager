@@ -14,9 +14,14 @@ export class UserService {
   constructor(private messageService : MessageService) { }
 
   
-  getUser() : Observable<Usuario[]> {
-    this.messageService.add('UserService: fetched usuarios')
+  getUsers() : Observable<Usuario[]> {
+    this.messageService.add('UserService: buscou usuarios')
     return of (USUARIOS)
+  }
+
+  getUser(id: number) : Observable<Usuario> {
+    this.messageService.add(`UserService: buscou usuario id=${id}`)
+    return of (USUARIOS.find(usuario => usuario.id === id))
   }
   
 }

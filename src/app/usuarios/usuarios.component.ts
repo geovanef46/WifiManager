@@ -18,14 +18,8 @@ export class UsuariosComponent implements OnInit {
     this.getUser()
   }
 
-  selectedUser : Usuario
-  onSelect(usuario : Usuario) : void{
-    this.selectedUser = usuario
-  }
-
-  
   getUser(): void{
-    this.userService.getUser()
+    this.userService.getUsers()
       .subscribe(usuarios => this.usuarios = usuarios)
   }
   

@@ -1,4 +1,7 @@
 <h1>{{title}}</h1>
-<app-user-detail [usuario]="selectedUser"></app-user-detail>
-<app-usuarios></app-usuarios>
+<nav>
+    <a routerLink="/dashboard">Dashboard</a>
+    <a routerLink="/usuarios">Usuarios</a>
+</nav>
+<router-outlet></router-outlet>
 <app-messages></app-messages>
