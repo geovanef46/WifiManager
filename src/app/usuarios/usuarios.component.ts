@@ -23,4 +23,17 @@ export class UsuariosComponent implements OnInit {
       .subscribe(usuarios => this.usuarios = usuarios)
   }
   
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.userService.addUser({ name } as Usuario)
+      .subscribe(usuario => {
+        this.usuarios.push(usuario);
+      });
+  }
+
+  delete(usuario: Usuario): void {
+    this.usuarios = this.usuarios.filter(h => h !== usuario);
+    this.userService.deleteUser(usuario).subscribe();
+  }
 }
